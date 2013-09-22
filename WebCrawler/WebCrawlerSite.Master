@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebCrawlerSite.master.cs" Inherits="WebCrawler.WebCrawlerSite" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title><%: Page.Title %>Great Warrior Web Crawler</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="WebCrawlerSiteForm" runat="server">
+        <div id="maskDiv" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #0094ff; z-index: 1001; opacity: .77; filter: alpha(opacity = 80);"></div>
+        <asp:ContentPlaceHolder ID="WebCrawlerSiteContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-right">
+                    <section id="CurrentUser">
+                        <p>Hello, <span id="CurrentUserDisplayName"><%= "Cowboy"%></span></p>
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li><a runat="server" href="/">Home</a></li>
+                            <li><a href="JobStatus.aspx">JobStatus</a></li>
+                            <li><a href="Index.aspx">Index</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; <%: DateTime.Now.Year %> - Great Warrior Team</p>
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
